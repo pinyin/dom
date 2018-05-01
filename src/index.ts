@@ -1,0 +1,1 @@
+export {hasStyle} from './hasStyle'

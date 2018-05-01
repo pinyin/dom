@@ -1,0 +1,38 @@
+{
+  "name": "@pinyin/dom",
+  "version": "0.0.1",
+  "description": "DOM Utilites",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepublishOnly": "rm -r dist && npx tsc",
+    "test": "npx jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pinyin/dom.git"
+  },
+  "keywords": [
+    "DOM"
+  ],
+  "author": "Bo Bao <bob432091@gmail.com> (https://github.com/pinyin)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pinyin/dom/issues"
+  },
+  "homepage": "https://github.com/pinyin/dom#readme",
+  "dependencies": {
+    "@pinyin/maybe": "^0.0.5",
+    "@pinyin/types": "^0.0.1",
+    "tslib": "^1.9.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^22.2.3",
+    "jest": "^22.4.3",
+    "ts-jest": "^22.4.4",
+    "typescript": "^2.8.3"
+  }
+}

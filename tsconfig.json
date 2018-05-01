@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "es5",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "declaration": true,
+    "strict": true,
+    "declarationDir": "dist",
+    "importHelpers": true,
+    "noEmitHelpers": true,
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "transformation-matrix/*": [
+        "node_modules/transformation-matrix/build-commonjs/*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    ".idea",
+    ".vscode",
+    "build",
+    "dist",
+    "**/*.spec.*",
+    "**/*.test.*"
+  ]
+}
