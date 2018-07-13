@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
     "prepublishOnly": "rm -r dist && npx tsc",
@@ -25,14 +26,37 @@
   },
   "homepage": "https://github.com/pinyin/dom#readme",
   "dependencies": {
-    "@pinyin/maybe": "^0.0.5",
-    "@pinyin/types": "^0.0.1",
-    "tslib": "^1.9.0"
+    "@pinyin/maybe": "^0.0.9",
+    "@pinyin/types": "^0.0.45",
+    "tslib": "^1.9.3"
   },
   "devDependencies": {
-    "@types/jest": "^22.2.3",
-    "jest": "^22.4.3",
-    "ts-jest": "^22.4.4",
-    "typescript": "^2.8.3"
+    "@types/jest": "^23.1.5",
+    "jest": "^23.4.0",
+    "ts-jest": "^22.0.0",
+    "typescript": "^2.9.2"
+  },
+  "jest": {
+    "roots": [
+      "src"
+    ],
+    "transform": {
+      "^.+\\.(t|j)sx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "verbose": true,
+    "globals": {
+      "ts-jest": {
+        "enableTsDiagnostics": true
+      }
+    }
   }
 }

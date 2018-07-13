@@ -162,13 +162,10 @@ Temporary Items
 
 .awcache
 .cache-loader
-dist
-**/dist/*
-src/**/*.js
-'package-lock.json' 
+/js/**/*
+/src/**/*.js
 
 .vscode
 .cache
 /report.html
 
-*.js

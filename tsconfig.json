@@ -3,30 +3,24 @@
     "outDir": "dist",
     "target": "es5",
     "module": "commonjs",
+    "jsx": "react",
     "esModuleInterop": true,
+    "inlineSourceMap": true,
     "declaration": true,
-    "strict": true,
+    "declarationMap": true,
     "declarationDir": "dist",
+    "strict": true,
     "importHelpers": true,
     "noEmitHelpers": true,
+    "downlevelIteration": true,
+    "noErrorTruncation": true,
     "lib": [
       "es6",
+      "es2016.array.include",
       "dom"
-    ],
-    "baseUrl": ".",
-    "paths": {
-      "transformation-matrix/*": [
-        "node_modules/transformation-matrix/build-commonjs/*"
-      ]
-    }
+    ]
   },
-  "exclude": [
-    "node_modules",
-    ".idea",
-    ".vscode",
-    "build",
-    "dist",
-    "**/*.spec.*",
-    "**/*.test.*"
+  "include": [
+    "./index.ts"
   ]
 }
