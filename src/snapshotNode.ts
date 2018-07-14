@@ -5,10 +5,10 @@ import {travel} from './travel'
 export function snapshotNode<T extends StyledElement>(node: T): T {
     const clonedNode = node.cloneNode(true) as StyledElement
     const styles = new Map<StyledElement, string>()
-    for (const descendant of travel(clonedNode)) { // FIXME what's the computed styles of an element that's not in document?
-        if (isStyledElement(descendant)) {
-            const computedStyle: string = getComputedStyle(descendant).cssText
-            styles.set(descendant, computedStyle)
+    for (const [from, to] of pair(travel(node), travel(clonedNode))) {
+        if (isStyledElement(from) && isStyledElement(to)) {
+            const computedStyle: string = getComputedStyle(from).cssText
+            styles.set(to, computedStyle)
         }
     }
     // batch read & write to prevent reflow
@@ -23,4 +23,12 @@ export function snapshotNode<T extends StyledElement>(node: T): T {
         }
     }
     return clonedNode as T
+}
+
+function* pair<A, B>(ai: IterableIterator<A>, bi: IterableIterator<B>): IterableIterator<[A, B]> {
+    for (let a = ai.next(), b = bi.next();
+         !a.done && !b.done;
+         a = ai.next(), b = bi.next()) {
+        yield [a.value, b.value]
+    }
 }

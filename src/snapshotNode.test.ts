@@ -1,22 +1,22 @@
 import {snapshotNode} from './snapshotNode'
 import {StyledElement} from './StyledElement'
 
-describe(`${snapshotNode.name}`, () => {
-    document.body.innerHTML = `
-        <div id="will-clone" class="outer" style="height: 800px;">
-            <div class="inner"></div>
-        </div>
-        <style type="text/css">
-        .outer {
-            width: 500px;
-            height: 1000px; /* will be overridden */
-        }
-        .inner {
-            color: black;
-        }
-        </style>
-    `
+document.body.innerHTML = `
+    <div id="will-clone" class="outer" style="height: 800px;">
+        <div class="inner"></div>
+    </div>
+    <style type="text/css">
+    .outer {
+        width: 500px;
+        height: 1000px; /* will be overridden */
+    }
+    .inner {
+        color: black;
+    }
+    </style>
+`
 
+describe(`${snapshotNode.name}`, () => {
     const toClone = document.getElementById('will-clone') as StyledElement
     const snapshot = snapshotNode(toClone)
     const snapshotInner = snapshot.children[0] as StyledElement
