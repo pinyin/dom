@@ -15,8 +15,9 @@ export function snapshotNode<T extends StyledElement>(node: T): T {
             const style: StringContainer = {}
             const priority: StringContainer = {}
             Array.from(computedStyle).forEach(key => {
-                if (hasStyle(computedStyle.getPropertyValue(key))) {
-                    style[key] = computedStyle.getPropertyValue(key)
+                const value = computedStyle.getPropertyValue(key)
+                if (hasStyle(value)) {
+                    style[key] = value
                     priority[key] = computedStyle.getPropertyPriority(key)
                 }
             })
