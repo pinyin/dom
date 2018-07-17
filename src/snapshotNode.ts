@@ -1,4 +1,5 @@
 import {notExisting} from '@pinyin/maybe'
+import {hasStyle} from './hasStyle'
 import {isStyledElement, StyledElement} from './StyledElement'
 import {travel} from './travel'
 
@@ -14,8 +15,10 @@ export function snapshotNode<T extends StyledElement>(node: T): T {
             const style: StringContainer = {}
             const priority: StringContainer = {}
             Array.from(computedStyle).forEach(key => {
-                style[key] = computedStyle.getPropertyValue(key)
-                priority[key] = computedStyle.getPropertyPriority(key)
+                if (hasStyle(computedStyle.getPropertyValue(key))) {
+                    style[key] = computedStyle.getPropertyValue(key)
+                    priority[key] = computedStyle.getPropertyPriority(key)
+                }
             })
             styles.set(to, style)
             priorities.set(to, style)
