@@ -1,6 +1,5 @@
 import {existing, notExisting} from '@pinyin/maybe'
 import {px} from '@pinyin/types'
-import {arrayFromNodeList} from './arrayFromNodeList'
 import {hasStyle} from './hasStyle'
 import {isStyledElement, StyledElement} from './StyledElement'
 import {travel} from './travel'
@@ -79,12 +78,14 @@ const addedToDocumentListeners = new WeakMap<Node, () => void>()
 let initialized: boolean = false
 const observer = new MutationObserver((records: Array<MutationRecord>) => {
     records.forEach(record => {
-        arrayFromNodeList(record.addedNodes).forEach(addedNode => {
-            const listener = addedToDocumentListeners.get(addedNode)
-            if (listener) {
-                try { listener() } catch {}
-            }
-        })
+        if (record.addedNodes.length > 0) {
+            Array.from(record.addedNodes).forEach(addedNode => {
+                const listener = addedToDocumentListeners.get(addedNode)
+                if (listener) {
+                    try { listener() } catch {}
+                }
+            })
+        }
     })
 })
 

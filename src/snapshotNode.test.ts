@@ -30,10 +30,11 @@ describe(`${snapshotNode.name}`, () => {
     document.body.appendChild(snapshot)
     const snapshotInner = snapshot.children[0] as StyledElement
 
-    test(`should snapshot computed style to inline style`, () => {
+    test(`should snapshot computed style to inline style`, async () => {
         expect(snapshot.style.width).toEqual('500px')
         expect(snapshot.style.height).toEqual('800px')
         expect(snapshot.className).toEqual('')
+        await new Promise(resolve => setTimeout(resolve, 100))
         expect(snapshot.scrollTop).toEqual(100) // not sure if this is working or not
     })
 
