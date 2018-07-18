@@ -61,7 +61,6 @@ function adjustScrollAfterAdded(clonedNode: HTMLElement, scrolls: Map<HTMLElemen
         for (const to of travel(clonedNode)) {
             if (to instanceof HTMLElement) {
                 const scroll = scrolls.get(to)
-                console.log('scroll', scroll)
                 if (existing(scroll)) {
                     to.scrollTop = scroll.top
                     to.scrollLeft = scroll.left
