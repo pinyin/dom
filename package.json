@@ -1,6 +1,6 @@
 {
   "name": "@pinyin/dom",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "DOM Utilites",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -33,6 +33,7 @@
   "devDependencies": {
     "@types/jest": "^23.1.5",
     "jest": "^23.4.0",
+    "mutationobserver-shim": "^0.3.2",
     "ts-jest": "^22.0.0",
     "typescript": "^2.9.2"
   },

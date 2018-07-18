@@ -1,4 +1,3 @@
-export {arrayFromNodeList} from './src/arrayFromNodeList'
 export {consolidateComputedStyle} from './src/consolidateComputedStyle'
 export {hasStyle} from './src/hasStyle'
 export {isElement} from './src/isElement'
