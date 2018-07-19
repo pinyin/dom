@@ -1,6 +1,6 @@
 {
   "name": "@pinyin/dom",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "DOM Utilites",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

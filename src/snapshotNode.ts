@@ -55,6 +55,7 @@ export function snapshotNode<T extends StyledElement>(node: T, shouldConsolidate
 function adjustScrollAfterAdded(clonedNode: HTMLElement, scrolls: Map<HTMLElement, Scroll>): void {
     if (!initialized) {
         observer.observe(document.body, {subtree: true, childList: true}) // FIXME what if document.body is deleted?
+        initialized = true
     }
 
     addedToDocumentListeners.set(clonedNode, () => {
